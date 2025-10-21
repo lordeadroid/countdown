@@ -1,32 +1,33 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, watchEffect } from "vue";
 
-const startDate = new Date("2025-07-19T00:00:00.000+05:30");
 const now = ref(new Date());
-
+const startTime = new Date("2025-07-19T00:00:00.000+05:30").getTime();
 const days = ref(0);
 const hours = ref(0);
 const minutes = ref(0);
 const seconds = ref(0);
 
-let intervalId;
+const intervalId = ref(null);
+
+watchEffect(() => {
+  const remaining = now.value.getTime() - startTime;
+  days.value = Math.floor(remaining / (1000 * 60 * 60 * 24));
+  hours.value = Math.floor(
+    (remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  minutes.value = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+  seconds.value = Math.floor((remaining % (1000 * 60)) / 1000);
+});
 
 onMounted(() => {
-  intervalId = window.setInterval(() => {
+  intervalId.value = setInterval(() => {
     now.value = new Date();
-    const remaining = now.value.getTime() - startDate.getTime();
-
-    days.value = Math.floor(remaining / (1000 * 60 * 60 * 24));
-    hours.value = Math.floor(
-      (remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    minutes.value = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-    seconds.value = Math.floor((remaining % (1000 * 60)) / 1000);
   }, 1000);
 });
 
 onUnmounted(() => {
-  clearInterval(intervalId);
+  clearInterval(intervalId.value);
 });
 </script>
 
