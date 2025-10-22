@@ -49,14 +49,15 @@ div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
-}
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-span {
-  font-size: 1.5rem;
+  height: 100lvh;
+  width: 100lvw;
+
+  & > h1 {
+    font-size: 2.5rem;
+  }
+
+  & > span {
+    font-size: 1.5rem;
+  }
 }
 </style>
