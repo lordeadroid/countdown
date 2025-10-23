@@ -49,8 +49,8 @@ div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100lvh;
-  width: 100lvw;
+  height: 100svh;
+  width: 100svw;
 
   & > h1 {
     font-size: 2.5rem;
