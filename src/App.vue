@@ -49,15 +49,21 @@ div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100svh;
-  width: 100svw;
+  height: 100dvh;
+  width: 100dvw;
+  padding: 1rem;
+  font-style: italic;
+  font-weight: 700;
+  text-shadow: 0rem 0.5rem 1rem;
 
   & > h1 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
+    color: teal;
   }
 
   & > span {
-    font-size: 1.5rem;
+    font-size: 2.25rem;
+    color: thistle;
   }
 }
 </style>
