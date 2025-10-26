@@ -33,18 +33,16 @@ onUnmounted(() => {
 
 <template>
   <div>
-    <h1>Countdown Timer</h1>
-    <div>
-      <span>{{ days }} Days</span>
-      <span>{{ hours }} Hours</span>
-      <span>{{ minutes }} Minutes</span>
-      <span>{{ seconds }} Seconds</span>
-    </div>
+    <span>{{ days }} Days</span>
+    <span>{{ hours }} Hours</span>
+    <span>{{ minutes }} Minutes</span>
+    <span>{{ seconds }} Seconds</span>
   </div>
 </template>
 
 <style scoped>
 div {
+  font-size: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,17 +51,25 @@ div {
   width: 100dvw;
   padding: 1rem;
   font-style: italic;
-  font-weight: 700;
-  text-shadow: 0rem 0.5rem 1rem;
+  font-weight: 900;
+  text-align: center;
+  background: linear-gradient(180deg, #ff0080, #ff8c00, #40e0d0, #ff0080);
+  background-size: 1000% 1000%;
+  animation: move-gradient 20s ease-in infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  & > h1 {
-    font-size: 2.75rem;
-    color: teal;
+@keyframes move-gradient {
+  0% {
+    background-position: 50% 0%;
   }
-
-  & > span {
-    font-size: 2.25rem;
-    color: thistle;
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
   }
 }
 </style>
