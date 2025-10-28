@@ -54,6 +54,7 @@ onUnmounted(() => {
   font-style: italic;
   font-weight: 900;
   color: teal;
+  align-items: center;
 
   & > .content {
     display: flex;
