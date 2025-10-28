@@ -32,33 +32,40 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div>
-    <span>{{ days }} Days</span>
-    <span>{{ hours }} Hours</span>
-    <span>{{ minutes }} Minutes</span>
-    <span>{{ seconds }} Seconds</span>
+  <div className="body">
+    <div>CountDown</div>
+    <div className="content">
+      <span>{{ days }} Day</span>
+      <span>{{ hours }} Hour</span>
+      <span>{{ minutes }} Minute</span>
+      <span>{{ seconds }} Second</span>
+    </div>
   </div>
 </template>
 
 <style scoped>
-div {
-  font-size: 4rem;
+.body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
   height: 100dvh;
   width: 100dvw;
-  padding: 1rem;
+  font-size: 5rem;
   font-style: italic;
   font-weight: 900;
-  text-align: center;
-  background: linear-gradient(180deg, #ff0080, #ff8c00, #40e0d0, #ff0080);
-  background-size: 1000% 1000%;
-  animation: move-gradient 20s ease-in infinite;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: teal;
+
+  & > .content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(180deg, #ff0080, #ff8c00, #40e0d0, #ff0080);
+    background-size: 500% 500%;
+    animation: move-gradient 20s ease-in infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 @keyframes move-gradient {
