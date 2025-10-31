@@ -33,7 +33,7 @@ onUnmounted(() => {
 
 <template>
   <div className="body">
-    <div>CountDown</div>
+    <div className="header">CountDown</div>
     <div className="content">
       <span>{{ days }} Day</span>
       <span>{{ hours }} Hour</span>
@@ -53,8 +53,8 @@ onUnmounted(() => {
   font-size: 5rem;
   font-style: italic;
   font-weight: 900;
-  color: teal;
   align-items: center;
+  color: darkgray;
 
   & > .content {
     display: flex;
@@ -62,14 +62,41 @@ onUnmounted(() => {
     flex-direction: column;
     background: linear-gradient(180deg, #ff0080, #ff8c00, #40e0d0, #ff0080);
     background-size: 500% 500%;
-    animation: move-gradient 20s ease-in infinite;
+    animation: animate-gradient 20s ease-in infinite;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 }
 
-@keyframes move-gradient {
+.header {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  background: red;
+  transition: transform 0.5s ease-in, background-color 0.4s ease-in;
+}
+
+.header:hover::before {
+  background-color: orange;
+  transition: transform 0.5s ease-in, background-color 0.4s ease-in;
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+@keyframes animate-gradient {
   0% {
     background-position: 50% 0%;
   }
