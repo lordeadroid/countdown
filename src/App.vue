@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, watchEffect } from "vue";
 
 const now = ref(new Date());
-const startTime = new Date("2025-11-23T00:00:00.000+05:30").getTime();
+const startTime = new Date("2025-11-24T00:00:00.000+05:30").getTime();
 const days = ref(0);
 const hours = ref(0);
 const minutes = ref(0);
