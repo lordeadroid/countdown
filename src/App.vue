@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, watchEffect } from "vue";
 
 const now = ref(new Date());
-const startTime = new Date("2025-07-19T00:00:00.000+05:30").getTime();
+const startTime = new Date("2025-11-23T00:00:00.000+05:30").getTime();
 const days = ref(0);
 const hours = ref(0);
 const minutes = ref(0);
@@ -86,12 +86,16 @@ onUnmounted(() => {
   transform: scaleX(0);
   transform-origin: right;
   background: red;
-  transition: transform 0.5s ease-in, background-color 0.4s ease-in;
+  transition:
+    transform 0.5s ease-in,
+    background-color 0.4s ease-in;
 }
 
 .header:hover::before {
   background-color: orange;
-  transition: transform 0.5s ease-in, background-color 0.4s ease-in;
+  transition:
+    transform 0.5s ease-in,
+    background-color 0.4s ease-in;
   transform-origin: left;
   transform: scaleX(1);
 }
