@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, watchEffect } from "vue";
 
 const now = ref(new Date());
-const startTime = new Date("2025-11-24T00:00:00.000+05:30").getTime();
+const startTime = new Date("2026-01-01T00:00:00.000+05:30").getTime();
 const days = ref(0);
 const hours = ref(0);
 const minutes = ref(0);
@@ -33,7 +33,7 @@ onUnmounted(() => {
 
 <template>
   <div className="body">
-    <div className="header">CountDown</div>
+    <div className="header">Streak</div>
     <div className="content">
       <span>{{ days }} Day</span>
       <span>{{ hours }} Hour</span>
